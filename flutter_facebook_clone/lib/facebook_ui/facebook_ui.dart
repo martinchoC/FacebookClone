@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_clone/facebook_ui/widgets/cicle_button.dart';
+import 'package:flutter_facebook_clone/facebook_ui/widgets/publication_item.dart';
 import 'package:flutter_facebook_clone/facebook_ui/widgets/quick_actions.dart';
 import 'package:flutter_facebook_clone/facebook_ui/widgets/stories.dart';
 import 'package:flutter_facebook_clone/facebook_ui/widgets/what_is_on_your_mind.dart';
@@ -65,13 +66,22 @@ class FacebookUI extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: const [
-          SizedBox(height: 10),
-          WhatIsOnYourMind(),
-          SizedBox(height: 30),
-          QuickActions(),
-          SizedBox(height: 30),
-          Stories(),
+        children: [
+          const SizedBox(height: 10),
+          const WhatIsOnYourMind(),
+          const SizedBox(height: 30),
+          const QuickActions(),
+          const SizedBox(height: 30),
+          const Stories(),
+          const SizedBox(height: 20),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (_, index) => PublicationItem(
+              publication: publications[index],
+            ),
+            itemCount: publications.length,
+          ),
         ],
       ),
     );
