@@ -12,16 +12,21 @@ class Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool fromNetwork =
+        asset.startsWith("http://") || asset.startsWith("https://");
+    final imageProvider = fromNetwork ? NetworkImage(asset) : AssetImage(asset);
     return Container(
       width: size,
       height: size,
       decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            width: borderWidth,
-            color: Colors.white,
-          ),
-          image: DecorationImage(image: AssetImage(asset))),
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: borderWidth,
+          color: Colors.white,
+        ),
+        image: DecorationImage(
+            image: imageProvider as ImageProvider, fit: BoxFit.cover),
+      ),
     );
   }
 }
