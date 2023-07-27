@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_clone/facebook_ui/facebook_ui.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_facebook_clone/facebook_ui/widgets/aspect_ratio.dart';
 
 void main() {
   runApp(DevicePreview(
