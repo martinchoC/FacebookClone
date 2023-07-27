@@ -45,6 +45,14 @@ class PublicationItem extends StatelessWidget {
     );
     const reactions = Reaction.values;
     return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 6,
+            color: Color(0xffEBEBEB),
+          ),
+        ),
+      ),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,16 +73,19 @@ class PublicationItem extends StatelessWidget {
               ],
             ),
           ),
-          CachedNetworkImage(
-            imageUrl: publication.imageURL,
-            width: double.infinity,
-            height: 180,
-            fit: BoxFit.cover,
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: CachedNetworkImage(
+              imageUrl: publication.imageURL,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: padding.copyWith(top: 15),
             child: Text(
               publication.title,
+              style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
           Padding(
