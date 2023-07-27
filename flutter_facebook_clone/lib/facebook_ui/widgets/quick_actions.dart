@@ -41,7 +41,6 @@ class QuickActions extends StatelessWidget {
 
 class _QuickButton extends StatelessWidget {
   const _QuickButton({
-    super.key,
     required this.iconData,
     required this.color,
     required this.label,
